@@ -1,29 +1,11 @@
 {% extends "base.html" %}
 
 {% block main %}
-	<div class="inner-container">
+<h1> Tareas </h1>
+<ul>
+	{% for task in tasks %}
+		<li> {{ task.title }}</li>
+	{% endfor %}
+</ul>
 
-		<ul id="icons">
-			<li><a href="#" title="facebook" class="tooltip"><img src="social/fb.png" alt="" class="icon"></a></li>
-			<li><a href="#" title="twitter" class="tooltip"><img src="social/twitter.png" alt="" class="icon"></a></li>
-				<li><a href="#" title="google+" class="tooltip"><img src="social/gplus.png" alt="" class="icon"></a></li>
-				<li><a href="#" title="linkedin" class="tooltip"><img src="social/linkedin.png" alt="" class="icon"></a></li>
-		</ul>	
-		<div class="box">
-			<h1>Login</h1><form action="dbconnect.php" method="post">
-			<select name="socialn" class="list">
-				<option value="facebook">Facebook</option>
-				<option value="twitter">Twitter</option>
-				<option value="googlep" selected>Google+</option>
-				<option value="linkedin">Linkedin</option>
-			</select>
-			<input type="email" name="email" required placeholder="Email"/>
-			<input type="password" name="userpassword" required placeholder="Password"/>
-			<input type="submit" value="Login" value="Send" class="button">
-			</form>
-				<p><img src="images/secure-wifi.png" class="lock">Secure-Wifi<br><small>No registration required. 
-					Login with your social account, by {{ una_variable_cualquiera }}</small></p>
-				<a href="#" class="logo"><img src="images/logo.png"></a>
-		</div>
-	</div>
-	{% endblock %}
+{% endblock %}

@@ -1,6 +1,7 @@
-from app import app
-from flask import render_template
+from app import app, db
+from flask import render_template, redirect, url_for
 import forms #desde forms.py
+from models import Task
 
 #cada ruta define una función
 #y es lo que se ve de afuera como una pagina.
@@ -30,5 +31,8 @@ def bye():
 def add():
     form = forms.AddTaskForm()
     if form.validate_on_submit():
+        unaTarea = Task(title = form.title.data)
+        db.session.add(unaTarea)
+        db.session.commit()
         return render_template("add.html", form=form, title=form.title.data)
     return render_template("add.html", form = form)
