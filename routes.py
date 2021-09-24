@@ -25,8 +25,10 @@ def index():
 def bye():
     #return "Hasta luego!"
     return render_template("test2.html")
-
-@app.route("/add")
+#habilito metod post, ademas del get.
+@app.route("/add", methods=["POST","GET"])
 def add():
     form = forms.AddTaskForm()
+    if form.validate_on_submit():
+        return render_template("add.html", form=form, title=form.title.data)
     return render_template("add.html", form = form)
