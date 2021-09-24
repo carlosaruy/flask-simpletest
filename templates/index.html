@@ -1,19 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-<title>Secure-WiFi Hotspot</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="author" content="Secure-WiFi">
-	<meta name="description" content="Your One Stop Secure WiFi Connection.">
+{% extends "base.html" %}
 
-<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="style.css" type="text/css">
-
-</head>
-<body>
-	{% block main %}
-	{% endblock %}
+{% block main %}
 	<div class="inner-container">
 
 		<ul id="icons">
@@ -39,7 +26,4 @@
 				<a href="#" class="logo"><img src="images/logo.png"></a>
 		</div>
 	</div>
-
-</body>
-</html>
-
+	{% endblock %}
