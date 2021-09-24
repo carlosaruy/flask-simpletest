@@ -28,4 +28,5 @@ def bye():
 
 @app.route("/add")
 def add():
-    return render_template("add.html")
+    form = forms.AddTaskForm()
+    return render_template("add.html", form = form)
