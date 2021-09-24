@@ -10,12 +10,15 @@ from models import Task
 @app.route("/")
 @app.route("/index")
 def index():
+    #cuando levante index carga task desde la base de datos.
+    tasks = Task.query.all()
+
     #return "<h1>Bienvenidos!</h1>"
     #render template busca por defecto en el directorio templates.
     #return render_template("index.html")
     #ahora - enviamos variables para que index.html las procese...
     # mediante jinja
-    return render_template("index.html", una_variable_cualquiera="juan paco pedro de la mar")
+    return render_template("index.html", tasks = tasks)
 #testear flask:
 #desde terminal ejecutar
 # flask run 
@@ -34,5 +37,7 @@ def add():
         unaTarea = Task(title = form.title.data)
         db.session.add(unaTarea)
         db.session.commit()
-        return render_template("add.html", form=form, title=form.title.data)
+        #luego de importar redirect y url_for en vez de
+        #renderizar la plantilla hago un redirect.
+        return redirect(url_for('index') )
     return render_template("add.html", form = form)
