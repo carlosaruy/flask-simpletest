@@ -3,6 +3,7 @@ from flask import Flask
 #se utiliza el render_template.
 
 app = Flask(__name__)
+app.config["SECRET_KEY"]="UNA_PASSWORD_SUPERSEGURA_EN_GITHUB"
 from routes import * 
 
 if __name__ == "__main__":
